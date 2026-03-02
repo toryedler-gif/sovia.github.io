@@ -1,37 +1,39 @@
 <!doctype html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>sovia.atelier</title>
   <meta name="description" content="Artworks by sovia.atelier" />
 
-  <!-- Fonts (Google Fonts) -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root{
       --bg:#fbfaf7;
-      --bg2:#f3f0ea;
+      --bg2:#f2efe8;
       --text:#141414;
       --muted:#5d5d5d;
       --line:rgba(0,0,0,.12);
-      --card:rgba(255,255,255,.70);
+      --card:rgba(255,255,255,.72);
       --shadow: 0 18px 60px rgba(0,0,0,.08);
       --radius:18px;
       --max:1040px;
     }
+
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
+
     body{
       margin:0;
       color:var(--text);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      font-family: "Source Sans 3", system-ui, -apple-system, Segoe UI, Roboto, Arial;
       background:
-        radial-gradient(900px 600px at 20% 10%, rgba(0,0,0,.03), transparent 60%),
-        radial-gradient(800px 520px at 80% 30%, rgba(0,0,0,.025), transparent 55%),
+        radial-gradient(900px 600px at 18% 10%, rgba(0,0,0,.03), transparent 60%),
+        radial-gradient(800px 520px at 82% 30%, rgba(0,0,0,.025), transparent 55%),
         linear-gradient(180deg, var(--bg), var(--bg2));
     }
 
@@ -46,38 +48,76 @@
     }
 
     a{color:inherit}
-    .wrap{max-width:var(--max); margin:0 auto; padding:34px 18px 78px; position:relative}
+
+    .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:34px 18px 78px;
+      position:relative;
+    }
+
     header{
-      display:flex; align-items:center; justify-content:space-between; gap:16px;
-      position:sticky; top:0;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      position:sticky;
+      top:0;
       padding:14px 0;
       backdrop-filter: blur(10px);
       background: linear-gradient(180deg, rgba(251,250,247,.92), rgba(251,250,247,.65));
       border-bottom:1px solid rgba(0,0,0,.06);
       z-index:5;
     }
-    .brand{
-      font-family: Fraunces, serif;
-      font-weight: 650;
-      letter-spacing:.2px;
-      font-size:18px;
-    }
-    .nav{display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end}
-    .nav a{
-      font-size:14px; text-decoration:none; color:var(--muted);
-      padding:8px 10px; border-radius:999px; border:1px solid transparent;
-    }
-    .nav a:hover{color:var(--text); border-color:rgba(0,0,0,.10); background:rgba(255,255,255,.5)}
 
-    .hero{margin:28px 0 18px; display:grid; grid-template-columns: 1.2fr .8fr; gap:18px; align-items:start}
+    .brand{
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 700;
+      letter-spacing:.2px;
+      font-size:20px;
+    }
+
+    .nav{display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end}
+
+    .nav a{
+      font-size:14px;
+      text-decoration:none;
+      color:var(--muted);
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid transparent;
+      transition: .15s ease;
+    }
+    .nav a:hover{
+      color:var(--text);
+      border-color:rgba(0,0,0,.10);
+      background:rgba(255,255,255,.55);
+    }
+
+    .hero{
+      margin:28px 0 18px;
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:18px;
+      align-items:start;
+    }
+
     h1{
       margin:0 0 10px;
-      font-family: Fraunces, serif;
-      font-size:44px;
-      line-height:1.02;
+      font-family: "Cormorant Garamond", serif;
+      font-size:56px;
+      line-height:1.0;
       font-weight:700;
     }
-    .sub{color:var(--muted); line-height:1.7; font-size:16px; margin:0}
+
+    .sub{
+      color:var(--muted);
+      line-height:1.7;
+      font-size:16px;
+      margin:0;
+      max-width:48ch;
+    }
+
     .statement{
       border:1px solid var(--line);
       background:var(--card);
@@ -85,17 +125,33 @@
       padding:18px 18px;
       box-shadow: var(--shadow);
     }
-    .statement p{margin:0 0 12px; color:var(--muted); line-height:1.75; font-size:15px}
-    .statement p:last-child{margin-bottom:0}
-    .label{font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:rgba(0,0,0,.55); margin-bottom:10px}
 
-    .divider{height:1px; background:rgba(0,0,0,.08); margin:22px 0 18px}
+    .label{
+      font-size:12px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:rgba(0,0,0,.55);
+      margin-bottom:10px;
+    }
+
+    .statement p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.75;
+      font-size:15px;
+    }
+
+    .divider{
+      height:1px;
+      background:rgba(0,0,0,.08);
+      margin:22px 0 18px;
+    }
 
     h2{
       margin:0 0 14px;
-      font-family: Fraunces, serif;
-      font-size:18px;
-      font-weight:650;
+      font-family: "Cormorant Garamond", serif;
+      font-size:22px;
+      font-weight:700;
     }
 
     /* Gallery */
@@ -104,6 +160,7 @@
       grid-template-columns: repeat(12, 1fr);
       gap:14px;
     }
+
     .tile{
       grid-column: span 6;
       border-radius: 16px;
@@ -113,7 +170,9 @@
       box-shadow: 0 12px 40px rgba(0,0,0,.06);
       transform: translateZ(0);
     }
+
     .tile.wide{grid-column: 1 / -1;}
+
     .tile img{
       width:100%;
       height:420px;
@@ -121,13 +180,19 @@
       display:block;
       transition: transform .35s ease;
     }
+
     .tile:hover img{transform: scale(1.03)}
+
     .cap{
       padding:12px 12px 14px;
-      display:flex; justify-content:space-between; gap:10px;
-      font-size:13px; color:var(--muted);
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      font-size:13px;
+      color:var(--muted);
     }
-    .cap b{font-family: Inter, system-ui; color:var(--text); font-weight:600}
+
+    .cap b{color:var(--text); font-weight:600}
     .cap span{white-space:nowrap}
 
     /* Contact */
@@ -137,21 +202,35 @@
       border-radius: var(--radius);
       padding:16px;
     }
+
     .contact{
-      display:flex; gap:14px; flex-wrap:wrap; color:var(--muted); font-size:14px;
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      color:var(--muted);
+      font-size:14px;
     }
-    .contact a{text-decoration:none; border-bottom:1px solid rgba(0,0,0,.18)}
+
+    .contact a{
+      text-decoration:none;
+      border-bottom:1px solid rgba(0,0,0,.18);
+      padding-bottom:2px;
+    }
     .contact a:hover{color:var(--text)}
+
     footer{margin-top:26px; color:var(--muted); font-size:12px}
 
     @media (max-width: 900px){
       .hero{grid-template-columns:1fr}
-      h1{font-size:36px}
+      h1{font-size:44px}
       .tile img{height:360px}
     }
+
+    /* 2 columns on mobile */
     @media (max-width: 640px){
-      .tile{grid-column: span 12}
-      .tile img{height:340px}
+      .tile{grid-column: span 6}
+      .tile img{height:220px}
+      .tile.wide{grid-column: 1 / -1;}
     }
   </style>
 </head>
@@ -175,14 +254,10 @@
       <div class="statement">
         <div class="label">Statement</div>
         <p>
-          In meiner Kunst ergreife ich Seelen und Eindrücke aus der Natur.
-          Pflanzen, Blumen und Körper werden zu Trägern von Emotion, Bewegung und innerer Kraft.
-          Schlichte Worte im Hintergrund halten die Energie der Natur fest – leise und präsent.
-        </p>
-        <p>
           In my work, I explore souls and impressions drawn from nature.
-          Plants, flowers, and the human body become carriers of emotion, movement, and inner strength.
-          Subtle words and layered forms hold the energy of nature and translate it into visual expression.
+          Plants, flowers, and the human body become carriers of emotion,
+          movement, and inner strength. Subtle words and layered forms hold
+          the energy of nature and translate it into visual expression.
         </p>
       </div>
     </section>
@@ -192,6 +267,10 @@
     <section id="works">
       <h2>Selected works</h2>
 
+      <!-- IMPORTANT:
+           Upload your images into /images and name them exactly like below,
+           or change the filenames here to match your uploads.
+      -->
       <div class="grid">
         <figure class="tile">
           <img src="images/dog.jpg" alt="Dog drawing" loading="lazy" />
