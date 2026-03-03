@@ -9,7 +9,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root{
@@ -71,14 +71,13 @@
     }
 
     .brand{
-      font-family: "Cormorant Garamond", serif;
-      font-weight: 700;
+      font-family: "Fraunces", serif;
+      font-weight: 650;
       letter-spacing:.2px;
-      font-size:20px;
+      font-size:18px;
     }
 
     .nav{display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end}
-
     .nav a{
       font-size:14px;
       text-decoration:none;
@@ -104,9 +103,9 @@
 
     h1{
       margin:0 0 10px;
-      font-family: "Cormorant Garamond", serif;
-      font-size:56px;
-      line-height:1.0;
+      font-family: "Fraunces", serif;
+      font-size:46px;
+      line-height:1.02;
       font-weight:700;
     }
 
@@ -115,7 +114,7 @@
       line-height:1.7;
       font-size:16px;
       margin:0;
-      max-width:48ch;
+      max-width:52ch;
     }
 
     .statement{
@@ -149,51 +148,46 @@
 
     h2{
       margin:0 0 14px;
-      font-family: "Cormorant Garamond", serif;
-      font-size:22px;
+      font-family: "Fraunces", serif;
+      font-size:18px;
       font-weight:700;
     }
 
-    /* Gallery */
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap:14px;
+    /* Swipe carousel */
+    .carousel{
+      border:1px solid rgba(0,0,0,.10);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.55);
+      box-shadow: 0 12px 40px rgba(0,0,0,.06);
+      overflow:hidden;
     }
 
-    .tile{
-      grid-column: span 6;
+    .track{
+      display:flex;
+      gap:14px;
+      padding:14px;
+      overflow-x:auto;
+      scroll-snap-type:x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .track::-webkit-scrollbar{display:none;}
+
+    .slide{
+      flex: 0 0 78%;
+      scroll-snap-align: center;
       border-radius: 16px;
       overflow:hidden;
       border:1px solid rgba(0,0,0,.10);
-      background: rgba(255,255,255,.65);
-      box-shadow: 0 12px 40px rgba(0,0,0,.06);
-      transform: translateZ(0);
+      background: rgba(255,255,255,.7);
     }
-
-    .tile.wide{grid-column: 1 / -1;}
-
-    .tile img{
+    .slide img{
       width:100%;
-      height:420px;
+      height:540px;
       object-fit: cover;
       display:block;
-      transition: transform .35s ease;
+      transform: translateZ(0);
     }
-
-    .tile:hover img{transform: scale(1.03)}
-
-    .cap{
-      padding:12px 12px 14px;
-      display:flex;
-      justify-content:space-between;
-      gap:10px;
-      font-size:13px;
-      color:var(--muted);
-    }
-
-    .cap b{color:var(--text); font-weight:600}
-    .cap span{white-space:nowrap}
 
     /* Contact */
     .contactBox{
@@ -202,7 +196,6 @@
       border-radius: var(--radius);
       padding:16px;
     }
-
     .contact{
       display:flex;
       gap:14px;
@@ -210,7 +203,6 @@
       color:var(--muted);
       font-size:14px;
     }
-
     .contact a{
       text-decoration:none;
       border-bottom:1px solid rgba(0,0,0,.18);
@@ -222,15 +214,13 @@
 
     @media (max-width: 900px){
       .hero{grid-template-columns:1fr}
-      h1{font-size:44px}
-      .tile img{height:360px}
+      h1{font-size:40px}
+      .slide{flex-basis: 86%;}
+      .slide img{height:440px}
     }
-
-    /* 2 columns on mobile */
     @media (max-width: 640px){
-      .tile{grid-column: span 6}
-      .tile img{height:220px}
-      .tile.wide{grid-column: 1 / -1;}
+      .slide{flex-basis: 90%;}
+      .slide img{height:380px}
     }
   </style>
 </head>
@@ -267,35 +257,15 @@
     <section id="works">
       <h2>Selected works</h2>
 
-      <!-- IMPORTANT:
-           Upload your images into /images and name them exactly like below,
-           or change the filenames here to match your uploads.
-      -->
-      <div class="grid">
-        <figure class="tile">
-          <img src="images/dog.jpg" alt="Dog drawing" loading="lazy" />
-          <figcaption class="cap"><b>Untitled</b><span>Colored pencil</span></figcaption>
-        </figure>
-
-        <figure class="tile">
-          <img src="images/cat-eye.jpg" alt="Cat eye drawing" loading="lazy" />
-          <figcaption class="cap"><b>Untitled</b><span>Colored pencil</span></figcaption>
-        </figure>
-
-        <figure class="tile">
-          <img src="images/figures.jpg" alt="Abstract figures" loading="lazy" />
-          <figcaption class="cap"><b>Untitled</b><span>Acrylic</span></figcaption>
-        </figure>
-
-        <figure class="tile">
-          <img src="images/landscape-frame.jpg" alt="Landscape in frame" loading="lazy" />
-          <figcaption class="cap"><b>Untitled</b><span>Mixed media</span></figcaption>
-        </figure>
-
-        <figure class="tile wide">
-          <img src="images/flower-black.jpg" alt="Flower on black background" loading="lazy" />
-          <figcaption class="cap"><b>Untitled</b><span>Mixed media</span></figcaption>
-        </figure>
+      <div class="carousel">
+        <div class="track" id="track" aria-label="Artwork carousel (swipe left/right)">
+          <!-- Update filenames here to match what you upload to /images -->
+          <div class="slide"><img src="images/dog.jpg" alt="Artwork 1" loading="lazy" /></div>
+          <div class="slide"><img src="images/cat-eye.jpg" alt="Artwork 2" loading="lazy" /></div>
+          <div class="slide"><img src="images/figures.jpg" alt="Artwork 3" loading="lazy" /></div>
+          <div class="slide"><img src="images/landscape-frame.jpg" alt="Artwork 4" loading="lazy" /></div>
+          <div class="slide"><img src="images/flower-black.jpg" alt="Artwork 5" loading="lazy" /></div>
+        </div>
       </div>
     </section>
 
@@ -305,7 +275,7 @@
       <h2>Contact</h2>
       <div class="contactBox">
         <div class="contact">
-          <a href="mailto:DEINEEMAIL@MAIL.DE">DEINEEMAIL@MAIL.DE</a>
+          <a href="mailto:sovia.atelier@icloud.com">sovia.atelier@icloud.com</a>
           <a href="https://instagram.com/sovia.atelier" target="_blank" rel="noopener">Instagram @sovia.atelier</a>
         </div>
       </div>
@@ -314,6 +284,64 @@
     <footer>© <span id="y"></span> sovia.atelier</footer>
   </div>
 
-  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+
+    // Infinite loop carousel using 3 identical sets + scroll position resets
+    (function () {
+      const track = document.getElementById("track");
+      if (!track) return;
+
+      const originals = Array.from(track.children);
+      if (originals.length < 2) return;
+
+      // Measure original width before cloning
+      const originalWidth = track.scrollWidth;
+
+      // Clone originals to the end
+      originals.forEach(node => track.appendChild(node.cloneNode(true)));
+
+      // Clone originals to the beginning (prepend in reverse to preserve order)
+      [...originals].reverse().forEach(node => track.insertBefore(node.cloneNode(true), track.firstChild));
+
+      // Start at the middle set
+      track.scrollLeft = originalWidth;
+
+      let raf = null;
+
+      function jumpWithoutSnap(newLeft) {
+        const prev = track.style.scrollSnapType;
+        track.style.scrollSnapType = "none";
+        track.scrollLeft = newLeft;
+        // Force reflow then restore snap
+        requestAnimationFrame(() => {
+          track.style.scrollSnapType = prev || "x mandatory";
+        });
+      }
+
+      function onScroll() {
+        if (raf) cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(() => {
+          // We now have 3 sets; keep user within the middle set
+          const left = track.scrollLeft;
+
+          // If too far left, jump forward one set
+          if (left < originalWidth * 0.5) {
+            jumpWithoutSnap(left + originalWidth);
+          }
+          // If too far right, jump back one set
+          else if (left > originalWidth * 1.5) {
+            jumpWithoutSnap(left - originalWidth);
+          }
+        });
+      }
+
+      track.addEventListener("scroll", onScroll, { passive: true });
+      window.addEventListener("resize", () => {
+        // Re-center on resize to avoid weirdness
+        jumpWithoutSnap(originalWidth);
+      });
+    })();
+  </script>
 </body>
 </html>
